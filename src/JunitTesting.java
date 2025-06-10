@@ -30,6 +30,16 @@ public class JunitTesting {
         Set<Integer> expected = new HashSet<>(Arrays.asList());
         assertEquals(expected, CommonElementsFinder.findCommonElements(new int[]{1,2,3}, new int[]{4,5,6}));
     }
+
+    @org.junit.jupiter.api.Test
+    void testForUniqueChar() {
+        assertTrue(UniqueCharacterChecker.hasUniqueCharacters("bye"));
+    }
+
+    @org.junit.jupiter.api.Test 
+    void testForNonUniqeChar() {
+        assertFalse(UniqueCharacterChecker.hasUniqueCharacters("Hello"));
+    }
 }
 
 

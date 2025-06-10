@@ -19,11 +19,11 @@ public class UniqueCharacterChecker {
         // Requirement: This must run in O(n) time, where n is the number of characters in the word
         // Hint: Stuck? Consider looking up "charAt" and seeing how it can help you
         Set<Character> seenChar = new HashSet<>();
-        for(char c : word.toCharArray()) {
+        for(int i = 0; i < word.length(); i++) {
+            char c = word.charAt(i);
             if(seenChar.contains(c)) {
                 return false;
             }
-            seenChar.add(c);
         }
        
         return true;

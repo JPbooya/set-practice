@@ -1,7 +1,10 @@
 import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import org.junit.Test;
@@ -40,6 +43,44 @@ public class JunitTesting {
     void testForNonUniqeChar() {
         assertFalse(UniqueCharacterChecker.hasUniqueCharacters("Hello"));
     }
+
+    @org.junit.jupiter.api.Test
+    void testForUniqueChar_null() {
+        assertTrue(UniqueCharacterChecker.hasUniqueCharacters(""));
+    }
+
+    @org.junit.jupiter.api.Test 
+    void testForDuplicateRemover() {
+        List<String> expected = Arrays.asList("bye", "hello");
+        assertEquals(expected, DuplicateRemover.sortAndRemoveDuplicates(new String[]{"bye", "hello", "bye"}));
+    }
+
+    @org.junit.jupiter.api.Test 
+    void testForDuplicateRemover_Null() {
+        List<String> expected = Arrays.asList();
+        assertEquals(expected, DuplicateRemover.sortAndRemoveDuplicates(new String[]{}));
+    }
+
+    @org.junit.jupiter.api.Test 
+    void testForDuplicateRemover_allDup() {
+        List<String> expected = Arrays.asList("bye");
+        assertEquals(expected, DuplicateRemover.sortAndRemoveDuplicates(new String[]{"bye", "bye", "bye", "bye"}));
+    }
+    @org.junit.jupiter.api.Test 
+    void testForDuplicateRemover_case() {
+        List<String> expected = Arrays.asList("Bye", "hello");
+        assertEquals(expected, DuplicateRemover.sortAndRemoveDuplicates(new String[]{"Bye", "hello"}));
+    }
+
+    @org.junit.jupiter.api.Test 
+    void testForDuplicateRemover_caseAllSame() {
+        List<String> expected = Arrays.asList("Hello", "hello");
+        assertEquals(expected, DuplicateRemover.sortAndRemoveDuplicates(new String[]{"Hello", "Hello", "Hello", "hello"}));
+    }
 }
+
+
+
+
 
 

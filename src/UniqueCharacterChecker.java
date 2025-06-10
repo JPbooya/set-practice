@@ -24,6 +24,7 @@ public class UniqueCharacterChecker {
             if(seenChar.contains(c)) {
                 return false;
             }
+            seenChar.add(c);
         }
        
         return true;
